@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="lobby-container">
+    <header>
+        <div class="user-info">
+            <span class="avatar">👤</span>
+            <span class="username">{{ username }}</span>
+        </div>
+        <a href="{{ url_for('logout') }}" class="btn btn-small">Logout</a>
+    </header>
+    
+    <main class="lobby-main">
+        <div class="matchmaking-section" id="matchmaking">
+            <h2>Ready to Play?</h2>
+            <p>Find an opponent and battle it out!</p>
+            
+            <button id="find-btn" class="btn btn-large btn-pulse">
+                <span class="icon">🔍</span>
+                Find Opponent
+            </button>
+            
+            <div id="waiting-msg" class="waiting-message hidden">
+                <div class="spinner"></div>
+                <p>Finding opponent...</p>
+                <button id="cancel-btn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+        
+        <div class="stats-section">
+            <h3>How to Play</h3>
+            <div class="rules">
+                <div class="rule">1. Click "Find Opponent"</div>
+                <div class="rule">2. Answer 5 questions</div>
+                <div class="rule">3. 10 seconds per question</div>
+                <div class="rule">4. Highest score wins!</div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<div id="game-container" class="hidden"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+{% endblock %}

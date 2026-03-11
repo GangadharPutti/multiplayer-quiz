@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="login-container">
+    <div class="logo">🎯</div>
+    <h1>Quiz Battle</h1>
+    <p class="subtitle">Test your knowledge against real opponents</p>
+    
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+    
+    <form method="POST" class="login-form">
+        <input type="text" name="username" placeholder="Enter your username" required autocomplete="off">
+        <button type="submit" class="btn btn-primary">Start Playing</button>
+    </form>
+    
+    <div class="features">
+        <div class="feature">⚡ Real-time multiplayer</div>
+        <div class="feature">🏆 Compete for the top spot</div>
+        <div class="feature">📱 Play anywhere</div>
+    </div>
+</div>
+{% endblock %}
